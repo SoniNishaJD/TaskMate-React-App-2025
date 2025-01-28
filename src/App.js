@@ -5,29 +5,26 @@ import './App.css';
 
  function App() {
   /*JS*/
- const [count, setCount]= useState(1)
-  function handleAdd(){
-    setCount(count + 1);
+ const [tasks, setTasks]= useState([{id: 1, name: "Record Lac", completed: false},
+  {id: 2, name: "Edit Record Lac", completed: true}, 
+  {id: 3, name: "Watch Record Lac", completed: false}]);
+
    
 
-  }
-  function handleSub(){
-    setCount(count - 1);
-  }
-  function handleReset(){
-    setCount(0);
-  }
 
   return (
     
   /*JSX*/
     <div className="App">
-     <div className="box">
-      <p> { count }</p>
-      <button onClick={handleAdd} className='add'>ADD</button>
-      <button onClick={handleSub} className='sub'>SUB</button>
-      <button onClick={handleReset} className='reset'>RESET</button>
-      </div>
+     <h1>Task List</h1>
+     <ul>
+      { tasks.map (({id, name,completed}) =>(
+        <li>
+          <span>{id} - {name}</span>
+          <button>DELETE</button>
+        </li>
+      ))}
+     </ul>
      </div>
      
   );
